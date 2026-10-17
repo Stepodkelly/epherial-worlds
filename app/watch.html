@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Watch</title>
+  <style>
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #100c0a;
+      color: #f4ecdf;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    body {
+      font: 16px/1.4 system-ui, sans-serif;
+    }
+
+    h1, h2 {
+      font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+      font-weight: 500;
+    }
+
+    header {
+      padding: 1.25rem 1.25rem 1rem;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: 2rem;
+    }
+
+    .label, .hud, .track {
+      font-family: system-ui, sans-serif;
+    }
+
+    #status {
+      margin: 0;
+    }
+
+    .hud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.75rem;
+    }
+
+    .hud p {
+      margin: 0;
+    }
+
+    .k {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 420px;
+      gap: 1.25rem;
+      align-items: start;
+      padding: 0 1.25rem 1.5rem;
+    }
+
+    #stage {
+      position: relative;
+      height: 640px;
+      background:
+        radial-gradient(ellipse at 50% 108%, #5a4034 0%, #2a1c16 38%, #120e0c 72%, #090807 100%);
+    }
+
+    .track {
+      position: absolute;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      color: inherit;
+      background: none;
+      border: 0;
+      box-shadow: inset 0 0 0 1px rgba(230, 194, 122, 0.45);
+      cursor: pointer;
+      overflow: hidden;
+      font-size: 13px;
+    }
+
+    .track img {
+      position: absolute;
+      left: 50%;
+      bottom: 22%;
+      width: 78%;
+      height: 68%;
+      object-fit: contain;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .track span {
+      position: absolute;
+      left: 0.25rem;
+      right: 0.25rem;
+      bottom: 0.3rem;
+      text-align: center;
+      text-shadow: 0 1px 2px #000;
+    }
+
+    .today h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .today iframe {
+      display: block;
+      width: 420px;
+      height: 640px;
+      border: 0;
+      background: #fff;
+    }
+
+    @media (max-width: 860px) {
+      .board {
+        grid-template-columns: 1fr;
+      }
+
+      .today iframe {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Epherial</h1>
+    <p id="status" class="label" aria-live="polite">Waiting for the floor…</p>
+    <div id="hud" class="hud" hidden>
+      <p><span class="k">Floor</span> <span id="floor"></span></p>
+      <p><span class="k">Gold</span> <span id="gold"></span></p>
+      <p><span class="k">Beat</span> <span id="beat"></span></p>
+    </div>
+  </header>
+  <div class="board">
+    <div id="stage" aria-label="Floor"></div>
+    <section class="today">
+      <h2>Today</h2>
+      <iframe
+        title="Today"
+        height="640"
+        src="https://calendar.google.com/calendar/embed?src=stephen.kelly%40uni.minerva.edu&ctz=Asia%2FTokyo"
+      ></iframe>
+    </section>
+  </div>
+  <script type="module">
+    import { startWatch } from './watch.js';
+
+    const status = document.querySelector('#status');
+    const hud = document.querySelector('#hud');
+    const floor = document.querySelector('#floor');
+    const gold = document.querySelector('#gold');
+    const beat = document.querySelector('#beat');
+    const stage = document.querySelector('#stage');
+
+    function percent(value) {
+      const number = Number(value);
+      return Number.isFinite(number) ? `${number * 100}%` : '0%';
+    }
+
+    function render(state) {
+      status.hidden = true;
+      hud.hidden = false;
+      floor.textContent = state.floor ?? '';
+      gold.textContent = state.gold ?? '';
+      beat.textContent = state.beat ?? '';
+      stage.replaceChildren();
+
+      const tracks = Array.isArray(state.tracks) ? state.tracks : [];
+      for (const track of tracks) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'track';
+        button.style.left = percent(track.nx);
+        button.style.top = percent(track.ny);
+        button.style.width = percent(track.w);
+        button.style.height = percent(track.h);
+
+        const subclass = typeof track.subclass === 'string' ? track.subclass : '';
+        if (/^[a-z0-9_]+$/i.test(subclass)) {
+          const img = document.createElement('img');
+          img.alt = '';
+          img.src = `../sprites/${subclass}.png`;
+          img.addEventListener('error', () => img.remove());
+          button.append(img);
+        }
+
+        const name = document.createElement('span');
+        name.textContent = typeof track.name === 'string' ? track.name : '';
+        button.append(name);
+        stage.append(button);
+      }
+    }
+
+    function fail() {
+      status.hidden = false;
+      status.textContent = 'The room server is not up.';
+    }
+
+    function connect() {
+      const socket = startWatch(render);
+      socket.addEventListener('error', fail);
+      socket.addEventListener('close', () => {
+        window.setTimeout(connect, 1000);
+      });
+    }
+
+    connect();
+  </script>
+</body>
+</html>

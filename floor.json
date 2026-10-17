@@ -1,0 +1,40 @@
+{
+  "states": {
+    "live": {
+      "grade": [0.45, 0.62, 0.28],
+      "darken": 0.3,
+      "dust": 1,
+      "patrolSeconds": 20,
+      "eyes": true,
+      "sounds": ["room", "tick"]
+    },
+    "safe": {
+      "grade": [0.85, 0.62, 0.35],
+      "darken": 0.12,
+      "dust": 0.25,
+      "patrolSeconds": 0,
+      "eyes": false,
+      "sounds": ["room"]
+    },
+    "collapse": {
+      "grade": [0.35, 0.12, 0.08],
+      "darken": 0.55,
+      "dust": 1.6,
+      "patrolSeconds": 12,
+      "eyes": true,
+      "sounds": ["room", "tick"]
+    }
+  },
+  "setBy": {
+    "rest": "safe",
+    "close": "collapse"
+  },
+  "default": "live",
+  "sprites": ["patrol_shadow", "corner_eyes", "ember", "dust"],
+  "sounds": {
+    "room": "audio/room.ogg",
+    "scrape": "audio/scrape.ogg",
+    "step": "audio/step.ogg",
+    "tick": "audio/tick.ogg"
+  }
+}

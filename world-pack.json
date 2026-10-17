@@ -1,0 +1,830 @@
+ {
+  "voice": {
+    "tone": "You're live. The timer started, and the cheap seats are already bored.",
+    "card": "Eye-card. The fee is hiding in the margin.",
+    "achievement": "Scored. Wave now, before the replay sets the price.",
+    "loot": "Prize dropping. Trust the box, never the host."
+  },
+  "fit": {
+    "rule": "Score a real object on subclass function and look tags. Best score wins. The link is adjacent unless the exemplar names that exact object. If the real material is plastic, glass, or metal and the subclass lacks it, also attach the closest materials node. Naming may use only the subclass, its class, its faction tendencies, and one material myth. Menu verbs are the subclass verbs plus the class verbs."
+  },
+  "factions": [
+    {
+      "id": "borant",
+      "name": "Borant Corporation",
+      "role": "announcer",
+      "tendencies": [
+        "patches the crawl while it is live",
+        "controls the broadcast",
+        "gates the audience feed",
+        "urges killings for the show",
+        "runs the season as a spectacle"
+      ]
+    },
+    {
+      "id": "goblins",
+      "name": "Goblins",
+      "role": "meddling",
+      "tendencies": [
+        "clan retaliation",
+        "scrap engineering",
+        "ambush",
+        "territorial"
+      ]
+    },
+    {
+      "id": "system_ai",
+      "name": "System AI",
+      "role": "rules",
+      "tendencies": [
+        "remembers staff",
+        "seals a trick once a recap has aired it",
+        "thins a swarm that breeds too fast",
+        "picks race and class from practiced skill",
+        "bans unsanctioned talk-gear",
+        "can black out the public feed",
+        "nudges a party to quarrel over one prize"
+      ]
+    },
+    {
+      "id": "dungeon_ai",
+      "name": "Dungeon AI",
+      "role": "rules",
+      "tendencies": [
+        "writes loot for the audience",
+        "hides extra stats inside the visible ones",
+        "limits how often a potion can be swallowed",
+        "builds bosses as exaggerated types with a weakness to find",
+        "blanks the usual menus in safe rooms and trailers",
+        "extra attention can help, or make the suffering watchable"
+      ]
+    },
+    {
+      "id": "dungeon_system",
+      "name": "Dungeon system",
+      "role": "rules",
+      "tendencies": [
+        "caps how many creatures a quadrant can spawn",
+        "posts timers and marks in public",
+        "keeps some menus hidden until they flicker"
+      ]
+    },
+    {
+      "id": "borant_corporation",
+      "name": "Borant Corporation",
+      "role": "announcer",
+      "tendencies": [
+        "runs the season and its booked appearances",
+        "must air the sponsors",
+        "praises crawlers who look obedient",
+        "steers crawlers toward a watchable next floor"
+      ]
+    },
+    {
+      "id": "dungeon_masters",
+      "name": "Dungeon Masters",
+      "role": "rules",
+      "tendencies": [
+        "plays the season back inside the dungeon",
+        "patches room and inventory exploits",
+        "opens stairs and freezes anyone who went early",
+        "drops floors on a schedule",
+        "pulls smoke out of closed rooms"
+      ]
+    },
+    {
+      "id": "syndicate",
+      "name": "Syndicate",
+      "role": "regulator",
+      "tendencies": [
+        "legal seizure",
+        "regulation",
+        "neutral observation",
+        "resource law"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "id": "fossil_life",
+      "name": "Fossil life",
+      "myth": "What once lived is crushed beneath the ground and comes up again as coal, as oil, as bone, and as bodies tipped back into shells and prizes."
+    },
+    {
+      "id": "coal",
+      "name": "Coal",
+      "myth": "Buried lumps feed the clan's engines. Piled high and set burning, that heap itself becomes a wall."
+    },
+    {
+      "id": "fuel_oil",
+      "name": "Fuel oil",
+      "myth": "Oil from the shop is treated as everyday fuel. In a corked jug it throws a fire hotter and wider than a bottle that only has a wick."
+    },
+    {
+      "id": "bone",
+      "name": "Bone",
+      "myth": "Fighters and bait leave enough bone to reach the ceiling. That bone is worn, or built into the places where people sit."
+    },
+    {
+      "id": "pressed_creature",
+      "name": "Pressed creature",
+      "myth": "Squeeze a creature and what remains is soft matter plus a pale fluid. The halls stopper that fluid as stock and pour it out again."
+    }
+  ],
+  "classes": [
+    {
+      "id": "technology",
+      "name": "Technology",
+      "faction": "borant",
+      "naming_faction": "goblins",
+      "also": [
+        "system_ai",
+        "dungeon_ai",
+        "dungeon_system",
+        "borant_corporation",
+        "dungeon_masters",
+        "syndicate"
+      ],
+      "verbs": [
+        "tamper",
+        "close"
+      ],
+      "discourse": "Notices paint themselves on the eye and on hall glass, beside steam machines, dispensers, and hardware from outside. The layer is edited in public, shut when staff arrive, and opened so viewers can look through the people inside.",
+      "subclasses": [
+        {
+          "id": "thinking_tool",
+          "name": "Thinking tool",
+          "function": [
+            "screen",
+            "keyboard",
+            "information"
+          ],
+          "look": [
+            "slate",
+            "dead battery",
+            "private menu",
+            "sorted list"
+          ],
+          "discourse": "Slates and leftover machines keep the lists and the answers, and the layer shuts when staff step in.",
+          "exemplar": "A front-desk machine is pocketed even though its battery is already spent."
+        },
+        {
+          "id": "status_overlay",
+          "name": "Status overlay",
+          "function": [
+            "screen",
+            "label",
+            "information"
+          ],
+          "look": [
+            "corner bars",
+            "floating box",
+            "skull marks",
+            "bottom slots"
+          ],
+          "discourse": "What hangs in view is a wound chart, kill marks made public, notices, quick slots, and the bars for health and magic.",
+          "exemplar": "A corner of sight holds health, magic, and a floor timer that keeps shrinking."
+        },
+        {
+          "id": "hall_map",
+          "name": "Hall map",
+          "function": [
+            "screen",
+            "map",
+            "information"
+          ],
+          "look": [
+            "corner chart",
+            "colored dots",
+            "fog",
+            "overhead"
+          ],
+          "discourse": "Halls, threats, stairs, and shelter ink themselves onto a chart. A sprint tightens it. A swarm at its limit floods it.",
+          "exemplar": "Walked halls ink themselves in, and a thought pushes the chart aside."
+        },
+        {
+          "id": "floor_clock",
+          "name": "Floor clock",
+          "function": [
+            "screen",
+            "timer",
+            "information"
+          ],
+          "look": [
+            "countdown",
+            "corner",
+            "second timer"
+          ],
+          "discourse": "You can see the countdown that runs out at the collapse. A second, shorter clock can drive people from safe rooms a full hour sooner.",
+          "exemplar": "Days still left tick beside a count of people who remain."
+        },
+        {
+          "id": "room_screen",
+          "name": "Room screen",
+          "function": [
+            "screen",
+            "broadcast",
+            "information"
+          ],
+          "look": [
+            "wall panel",
+            "counter bank",
+            "television"
+          ],
+          "discourse": "At a rest stop the wall glass runs four things at once: the season, a headcount of the living, the house rules, and a fight put on again.",
+          "exemplar": "Over the counter, a bank of panels plays the season beside a count of the living and the rules of the house."
+        },
+        {
+          "id": "audience_feed",
+          "name": "Audience feed",
+          "function": [
+            "screen",
+            "camera",
+            "scrying"
+          ],
+          "look": [
+            "unseen pipe",
+            "enterable clip",
+            "freeze frame"
+          ],
+          "discourse": "Distant viewers look out through a crawler's eyes until a toilet, or stairs taken early, cuts that pipe.",
+          "exemplar": "What a crawler sees can be sent, uncut, to viewers far away."
+        },
+        {
+          "id": "projection_stage",
+          "name": "Projection stage",
+          "function": [
+            "screen",
+            "projection",
+            "scrying"
+          ],
+          "look": [
+            "stretched table",
+            "flickering crowd",
+            "blue lamp"
+          ],
+          "discourse": "A room the size of a closet is hauled open into a studio. Its crowd flickers, and one wall pretends to be the spot where viewers stand.",
+          "exemplar": "Walk at the studio crowd and a wall you cannot see stops you. Those people were never in the room."
+        },
+        {
+          "id": "party_channel",
+          "name": "Party channel",
+          "function": [
+            "keyboard",
+            "screen",
+            "communication"
+          ],
+          "look": [
+            "floating keys",
+            "hidden line",
+            "skull buzz"
+          ],
+          "discourse": "The party speaks by typing on keys that hang in the air, or by sending a thought. Either line is open to the operators.",
+          "exemplar": "Type in empty air and the words buzz inside a partner's skull."
+        },
+        {
+          "id": "dungeon_mail",
+          "name": "Dungeon mail",
+          "function": [
+            "communication",
+            "box"
+          ],
+          "look": [
+            "black box",
+            "red flag",
+            "pole"
+          ],
+          "discourse": "Hands cannot open the shelter box. It opens when the dungeon delivers, and club members receive one spellbook on each floor.",
+          "exemplar": "A pole carries a flagged box that answers the dungeon and refuses fingers."
+        },
+        {
+          "id": "tunnel_relay",
+          "name": "Tunnel relay",
+          "function": [
+            "device",
+            "communication"
+          ],
+          "look": [
+            "outside make",
+            "flagged",
+            "pocketable"
+          ],
+          "discourse": "You may pocket or sell a tunnel radio built by an outside firm. Turn it on in the crawl and you are out.",
+          "exemplar": "An offworld radio can sit in a pocket; powering it on here ends the run."
+        },
+        {
+          "id": "control_panel",
+          "name": "Control panel",
+          "function": [
+            "lever",
+            "panel",
+            "control"
+          ],
+          "look": [
+            "fur-lined pit",
+            "unmarked spigots",
+            "bouncing levers"
+          ],
+          "discourse": "Nothing on the engine is labeled. Levers crowd a pair of taps, and the only guide is the noise plus memory of which tap is which.",
+          "exemplar": "Whoever drives sits in a fur-lined pit that shakes, crowded with levers and taps."
+        },
+        {
+          "id": "steam_rig",
+          "name": "Steam rig",
+          "function": [
+            "machine",
+            "vehicle"
+          ],
+          "look": [
+            "treads",
+            "copper frame",
+            "coal hopper",
+            "sparks"
+          ],
+          "discourse": "Steam is what drives the wall plants, the dozers, and the coal bikes. Riders stay on until the boiler is close to bursting.",
+          "exemplar": "A scrap tractor on treads rolls the halls with a spiked wheel spinning ahead of it."
+        },
+        {
+          "id": "service_machine",
+          "name": "Service machine",
+          "function": [
+            "machine",
+            "lever",
+            "dispenser"
+          ],
+          "look": [
+            "row of taps",
+            "unplugged toaster",
+            "wrapped candies"
+          ],
+          "discourse": "A rest-stop machine meters the taps, one sweet a day, or a single slice, then refuses until tomorrow.",
+          "exemplar": "Soda, water, milk, and liquor all come off one self-serve row of taps."
+        },
+        {
+          "id": "craft_bench",
+          "name": "Craft bench",
+          "function": [
+            "machine",
+            "bench",
+            "information"
+          ],
+          "look": [
+            "heavy table",
+            "workshop tab",
+            "cool after fire"
+          ],
+          "discourse": "Menus for bombs, traps, alchemy, and engineering stay shut until you stand at the bench that matches them. A few of those tables will not catch fire.",
+          "exemplar": "Until the maker is at the proper bench, bomb work will not unlock."
+        },
+        {
+          "id": "shaping_tool",
+          "name": "Shaping tool",
+          "function": [
+            "device",
+            "tool"
+          ],
+          "look": [
+            "silver lollipop",
+            "handle button"
+          ],
+          "discourse": "Held in the hand, one shaper can rewrite what other things are made of. It does nothing until a bench in a private room exists.",
+          "exemplar": "Matter changes only at a private bench, and only when the button on this silver tool is used."
+        },
+        {
+          "id": "detonator",
+          "name": "Detonator",
+          "function": [
+            "device",
+            "trigger"
+          ],
+          "look": [
+            "breakable tip",
+            "small",
+            "scarce"
+          ],
+          "discourse": "Scarce charges of putty need a plain stick whose tip snaps. The stick works a single time.",
+          "exemplar": "Snap the tip and the blast uses that short plain stick up."
+        },
+        {
+          "id": "trap_sensor",
+          "name": "Trap sensor",
+          "function": [
+            "device",
+            "sensor",
+            "wire"
+          ],
+          "look": [
+            "dime-sized box",
+            "trailing wire",
+            "ready module"
+          ],
+          "discourse": "Wired boxes and finished modules decide who a trap takes and the moment it fires. Changing that choice waits for a later bench.",
+          "exemplar": "Long wires trail from tiny boxes that set a trap's victim and its timing."
+        },
+        {
+          "id": "pulse_sidearm",
+          "name": "Pulse sidearm",
+          "function": [
+            "device",
+            "weapon"
+          ],
+          "look": [
+            "compact",
+            "outside make",
+            "sponsor gift"
+          ],
+          "discourse": "Pulse guns show up as gifts from sponsors and as scavenged hardware from outside. Using one inside the crawl is forbidden.",
+          "exemplar": "Sorting goods by worth turns up a small pulse gun from an outside maker."
+        },
+        {
+          "id": "tech_shell",
+          "name": "Tech shell",
+          "function": [
+            "device",
+            "armor"
+          ],
+          "look": [
+            "powered suit",
+            "platinum",
+            "outside make"
+          ],
+          "discourse": "A powered suit and a platinum shield for the body both come from outside. Switch either on in the crawl and it is forbidden.",
+          "exemplar": "Among outside hardware that must stay switched off, one body shield is filed as premium."
+        },
+        {
+          "id": "ceiling_draw",
+          "name": "Ceiling draw",
+          "function": [
+            "machine",
+            "vent"
+          ],
+          "look": [
+            "unseen",
+            "ceiling"
+          ],
+          "discourse": "After a blast, something unseen overhead hauls smoke out of a shut room so the hall can still be breathed.",
+          "exemplar": "Fumes from a blast do not stay. They leave through the ceiling, and the room can still be breathed."
+        },
+        {
+          "id": "compact_still",
+          "name": "Compact still",
+          "function": [
+            "machine",
+            "still"
+          ],
+          "look": [
+            "copper lines",
+            "small",
+            "central body"
+          ],
+          "discourse": "Copper lines leave a small still and run into the central body, the part that fills the tubs of liquor.",
+          "exemplar": "In the middle of the room a body is fed by copper coming off a small still."
+        },
+        {
+          "id": "pedal_blender",
+          "name": "Pedal blender",
+          "function": [
+            "machine",
+            "blender"
+          ],
+          "look": [
+            "child-sized bike",
+            "pulley",
+            "bladed cap"
+          ],
+          "discourse": "Nobody is riding the exercise bike. It turns a pulley, and the pulley spins a very small blender.",
+          "exemplar": "A spin bike built for a child is what turns the pulley on a small blender."
+        },
+        {
+          "id": "cold_locker",
+          "name": "Cold locker",
+          "function": [
+            "machine",
+            "cold"
+          ],
+          "look": [
+            "walk-in",
+            "still running",
+            "stripped kitchen"
+          ],
+          "discourse": "Clear out the kitchen and leave it unmanned. The walk-in freezer can still be running.",
+          "exemplar": "The rest of the kitchen is gone, and the walk-in freezer has not stopped."
+        }
+      ]
+    },
+    {
+      "id": "container",
+      "name": "Containers",
+      "verbs": [
+        "refill",
+        "drink",
+        "uncork",
+        "pour",
+        "open",
+        "store"
+      ],
+      "discourse": "A swallow is bottled, a prize is ranked by the metal around it, and the same jug can be drunk or set alight. The throwaway shell belongs with buried coal, shop oil, bone, and pressed creatures.",
+      "subclasses": [
+        {
+          "id": "drinking_vessel",
+          "name": "Drinking vessel",
+          "function": [
+            "bottle",
+            "cup",
+            "liquid"
+          ],
+          "look": [
+            "small",
+            "corked",
+            "glass",
+            "clay",
+            "paper",
+            "jug"
+          ],
+          "materials": [
+            "fossil_life"
+          ],
+          "discourse": "Healing draughts, liquor, and ordinary drinks travel in corked bottles, clay jugs, paper cups, and poured glasses. Take the next swallow too soon and you are punished.",
+          "exemplar": "A corked vial, a paper cup, or a clay jug: each holds one swallow, and that swallow is timed."
+        },
+        {
+          "id": "service_tap",
+          "name": "Service tap",
+          "function": [
+            "liquid"
+          ],
+          "look": [
+            "lever",
+            "fountain",
+            "tap"
+          ],
+          "materials": [],
+          "discourse": "Water, soda, milk, alcohol, or a healing stream can be drawn in a safe room, so the bottle in a pack can wait.",
+          "exemplar": "Cold water, soda, milk, or beer is what the fountain gives once its lever moves."
+        },
+        {
+          "id": "alchemy_vial",
+          "name": "Alchemy vial",
+          "function": [
+            "bottle",
+            "liquid"
+          ],
+          "look": [
+            "small",
+            "stoppered",
+            "pale"
+          ],
+          "materials": [
+            "pressed_creature"
+          ],
+          "discourse": "Roaches crushed flat, and grubs that fed on corpses, give up a pale fluid. It is stoppered as alchemy stock and can be taken off a body after a short wait.",
+          "exemplar": "The pale fluid from those bugs and grubs fits in one vial, and the vial is stoppered."
+        },
+        {
+          "id": "fire_jug",
+          "name": "Fire jug",
+          "function": [
+            "bottle"
+          ],
+          "look": [
+            "clay",
+            "torch-neck",
+            "corked"
+          ],
+          "materials": [
+            "fuel_oil"
+          ],
+          "discourse": "A jug strong enough to carry drink can take a flame in its seal and then be thrown. A kill that carries a signature pays the one who built it.",
+          "exemplar": "Set the neck alight, throw, and the fire that follows is short and wide."
+        },
+        {
+          "id": "tiered_loot_box",
+          "name": "Tiered loot box",
+          "function": [
+            "box"
+          ],
+          "look": [
+            "bronze",
+            "silver",
+            "gold",
+            "platinum",
+            "labeled"
+          ],
+          "materials": [],
+          "discourse": "Bronze through platinum grades the prize boxes, and chance is not what fills them. Cheap metal pays potions and rations. Higher metal pays rarer gear.",
+          "exemplar": "Rarity is written on the chest as the color of its metal."
+        },
+        {
+          "id": "pocket_store",
+          "name": "Pocket store",
+          "function": [
+            "box"
+          ],
+          "look": [
+            "unseen",
+            "sortable",
+            "weight-limited"
+          ],
+          "materials": [],
+          "discourse": "Lift a thing for a moment and personal storage takes it, sorts it by kind, and keeps food from spoiling. It can also give back one item that no hand opened.",
+          "exemplar": "What you can lift may go in. A bottle that stayed hidden can be given back."
+        },
+        {
+          "id": "bulk_cask",
+          "name": "Bulk cask",
+          "function": [
+            "box"
+          ],
+          "look": [
+            "barrel",
+            "sack",
+            "heap",
+            "hopper"
+          ],
+          "materials": [
+            "coal"
+          ],
+          "discourse": "Powder in the workshops sits in marked barrels and in leather sacks. Coal is a heap up to the ceiling, plus a small hopper beside the bars.",
+          "exemplar": "Fuel for the shop is kept as marked barrels, as sacks, and as a hopper."
+        }
+      ]
+    },
+    {
+      "id": "seat",
+      "name": "Seat",
+      "verbs": [
+        "rest"
+      ],
+      "discourse": "To stop, a person needs something to sit on: a chair, a booth, or a couch, and the room provides it.",
+      "subclasses": [
+        {
+          "id": "safe_seat",
+          "name": "Safe seat",
+          "function": [
+            "chair",
+            "couch"
+          ],
+          "look": [
+            "plain",
+            "padded",
+            "wooden"
+          ],
+          "discourse": "In a shelter, or in a shop that has been copied, the wait is sat out on borrowed chairs, on booths that do not move, and on couches.",
+          "exemplar": "The waiting is done on plain chairs, on booths bolted in place, and on a couch already worn."
+        }
+      ]
+    },
+    {
+      "id": "plant",
+      "name": "Plant",
+      "verbs": [
+        "cling"
+      ],
+      "discourse": "Indoors, living growth grips the walls. It may be only a dim lamp, or it may be a hazard.",
+      "subclasses": [
+        {
+          "id": "wall_growth",
+          "name": "Wall growth",
+          "function": [
+            "plant",
+            "leaves"
+          ],
+          "look": [
+            "glowing",
+            "patchy",
+            "clinging"
+          ],
+          "discourse": "Floor after floor the same plant comes back as a thin coat on stone. The early halls are green. Later halls turn orange.",
+          "exemplar": "Where the walls glow with that growth, no lamp is required."
+        }
+      ]
+    },
+    {
+      "id": "tool",
+      "name": "Tool",
+      "verbs": [
+        "grip"
+      ],
+      "discourse": "The work of a room uses small objects. They are gripped, used, and set down again.",
+      "subclasses": [
+        {
+          "id": "handled_tool",
+          "name": "Handled tool",
+          "function": [
+            "tool",
+            "handle"
+          ],
+          "look": [
+            "small",
+            "gripped",
+            "worn"
+          ],
+          "discourse": "A grip is the center of the hammer, the drill, the brush, and the key. When the job ends they are set down.",
+          "exemplar": "Hand work first, then back on the shelf: hammer, drill, brush, and key."
+        }
+      ]
+    },
+    {
+      "id": "doorway",
+      "name": "Doorway",
+      "verbs": [
+        "pass"
+      ],
+      "discourse": "A room with people in it has a mouth toward the hall. That mouth can open, slam, or be barred.",
+      "subclasses": [
+        {
+          "id": "room_door",
+          "name": "Room door",
+          "function": [
+            "door",
+            "exit"
+          ],
+          "look": [
+            "wooden",
+            "plain",
+            "barred"
+          ],
+          "discourse": "The way out is a door taken from an ordinary building, and that door chooses when someone may go through.",
+          "exemplar": "Knock, and a plain door taken from somewhere else opens. Then it bars."
+        }
+      ]
+    },
+    {
+      "id": "creature",
+      "name": "Creature",
+      "verbs": [
+        "patrol"
+      ],
+      "discourse": "The same kinds of living thing keep coming out of the halls: packs on patrol, and scavengers that want corpses.",
+      "subclasses": [
+        {
+          "id": "patrol_dog",
+          "name": "Patrol dog",
+          "function": [
+            "creature"
+          ],
+          "look": [
+            "painted",
+            "fanged",
+            "large"
+          ],
+          "discourse": "Painted dogs come back three ways: patrols of two, mounts to ride, and bait in pens that stays hostile until it is fed.",
+          "exemplar": "They are large and painted. They patrol two at a time, and the injured ones wait in pens."
+        }
+      ]
+    }
+  ],
+  "quests": [
+    {
+      "id": "refill_vessel",
+      "verb": "refill",
+      "target": "drinking_vessel",
+      "reward": "30 gold",
+      "failure": "the timer on that object expires"
+    },
+    {
+      "id": "rest_seat",
+      "verb": "rest",
+      "target": "seat",
+      "reward": "timers pause",
+      "failure": "the floor timer keeps running"
+    },
+    {
+      "id": "close_tool",
+      "verb": "close",
+      "target": "thinking_tool",
+      "reward": "a loot box",
+      "failure": "the tool stays a live feed"
+    }
+  ],
+  "examples": [
+    {
+      "real": "laptop",
+      "class": "technology",
+      "subclass": "thinking_tool",
+      "link": "adjacent",
+      "material": null,
+      "verbs": [
+        "tamper",
+        "close"
+      ],
+      "name": "Lying Scrap-Glass"
+    },
+    {
+      "real": "plastic bottle",
+      "class": "container",
+      "subclass": "drinking_vessel",
+      "link": "adjacent",
+      "material": "fossil_life",
+      "verbs": [
+        "refill",
+        "drink",
+        "uncork",
+        "pour",
+        "open",
+        "store"
+      ],
+      "name": "Old-Bone Pitch Canteen"
+    }
+  ]
+}

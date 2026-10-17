@@ -1,0 +1,8 @@
+{
+  "ids": {
+    "glow": "glow.png",
+    "selected": "selected.png",
+    "reward": "reward.png",
+    "spark": "spark.png"
+  }
+}

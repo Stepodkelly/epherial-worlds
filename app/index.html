@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Epherial</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="xr-view" aria-hidden="true"></canvas>
+  <div id="overlay">
+    <div id="room" aria-hidden="true"></div>
+    <video id="cam" playsinline autoplay muted hidden></video>
+    <canvas id="view" aria-hidden="true"></canvas>
+    <div id="grade" aria-hidden="true"></div>
+    <div id="darken" aria-hidden="true"></div>
+    <img id="eyes" alt="" hidden>
+    <img id="patrol" alt="" hidden>
+    <div id="anchors"></div>
+
+    <header id="hud">
+      <p id="voice">Opening the floor…</p>
+      <p id="status" aria-live="polite">Loading the world…</p>
+      <p id="quest" hidden></p>
+      <p id="hint">1 live · 2 safe · 3 collapse · click a thing</p>
+    </header>
+
+    <aside id="card" hidden>
+      <p id="card-real"></p>
+      <h2 id="card-name"></h2>
+      <p id="card-line"></p>
+      <p id="card-myth" hidden></p>
+      <p class="label">Verbs</p>
+      <div id="card-verbs"></div>
+      <p id="card-say" hidden></p>
+      <button type="button" id="card-dismiss">Dismiss</button>
+    </aside>
+
+    <div id="picker" hidden>
+      <p id="picker-title">File the center of the view</p>
+      <div id="picker-classes"></div>
+    </div>
+
+    <footer>
+      <div id="inventory"></div>
+      <div id="toolbar">
+        <button type="button" id="rest" disabled>Rest</button>
+        <button type="button" id="close" disabled>Close</button>
+        <button type="button" id="file" disabled>File center</button>
+        <button type="button" id="rehearse" disabled>Rehearse</button>
+        <button type="button" id="camera" hidden>Use camera</button>
+        <button type="button" id="headset" hidden>Enter headset</button>
+        <button type="button" id="forget" disabled>Forget</button>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
